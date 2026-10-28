@@ -63,7 +63,7 @@ These are preliminary results from a small dataset and should not be interpreted
 
 SecureIR performs preliminary security screening. Its ML predictions and static/data-flow findings are not proof that a program is secure or vulnerable. Results require manual review.
 
-## Author
+## Authors
 
-Himanshu Choudhary
-Annum Singh
+-Himanshu Choudhary
+-Annum Singh
