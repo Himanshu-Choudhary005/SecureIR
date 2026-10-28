@@ -1,0 +1,50 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : integer_01.ll
+ML Predicted Class : INTEGER_RISK
+
+--- Extracted IR Features ---
+load_count                         : 1
+store_count                        : 2
+alloca_count                       : 2
+add_count                          : 1
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 0
+branch_count                       : 0
+getelementptr_count                : 0
+comparison_count                   : 0
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 2
+atomic_count                       : 1
+integer_division_count             : 0
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 1
+unreachable_count                  : 0
+pointer_count                      : 3
+null_pointer_store_count           : 0
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 1
+
+--- Combined Security Findings ---
+
+Finding 1: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 1 load instruction(s) and 2 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+--- Summary ---
+Total findings       : 1
+Review findings      : 0
+Informational findings: 1
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+============================================================

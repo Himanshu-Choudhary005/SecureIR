@@ -1,0 +1,41 @@
+=======================================================
+             SecureIR Analysis Report
+=======================================================
+IR File           : safe_01.ll
+ML Predicted Class: SAFE
+
+--- Extracted IR Features ---
+load_count                         : 3
+store_count                        : 4
+alloca_count                       : 4
+add_count                          : 1
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 0
+branch_count                       : 0
+pointer_count                      : 0
+comparison_count                   : 0
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 0
+atomic_count                       : 0
+integer_division_count             : 0
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 1
+unreachable_count                  : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 1
+
+--- Static Analysis Findings ---
+
+Finding 1: Memory operation summary
+Severity: INFO
+Details : Found 3 load instruction(s) and 4 store instruction(s). These are normal LLVM IR operations and are not flagged as vulnerabilities by themselves.
+
+=======================================================
+Analysis completed.
+ML prediction is experimental.
+Static findings are preliminary indicators, not confirmed vulnerabilities.
+=======================================================

@@ -1,0 +1,15 @@
+load_count,store_count,alloca_count,add_count,sub_count,mul_count,call_count,branch_count,pointer_count,label
+1,1,1,1,0,0,0,0,0,SAFE
+2,2,2,1,0,0,0,0,0,SAFE
+3,3,3,2,0,0,0,0,0,SAFE
+1,1,1,0,0,0,0,1,0,SAFE
+2,2,2,1,0,0,0,1,0,SAFE
+3,2,2,1,0,0,0,1,1,MEMORY_RISK
+4,3,3,2,0,0,0,1,2,MEMORY_RISK
+5,4,4,2,1,0,0,2,2,MEMORY_RISK
+2,2,2,1,0,0,0,1,1,MEMORY_RISK
+4,3,3,3,0,0,0,1,1,INTEGER_RISK
+3,3,3,2,1,0,0,1,0,INTEGER_RISK
+5,4,4,3,1,1,0,2,0,INTEGER_RISK
+2,2,2,2,0,0,0,1,0,INTEGER_RISK
+4,4,4,2,0,0,0,1,0,SAFE

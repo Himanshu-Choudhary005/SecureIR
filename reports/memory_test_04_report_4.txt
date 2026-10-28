@@ -1,0 +1,70 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : memory_test_04.ll
+ML Predicted Class : MEMORY_RISK
+
+--- Overall Security Assessment ---
+POTENTIAL RISK - MANUAL REVIEW REQUIRED
+Reason: 1 finding(s) require manual review.
+
+--- Extracted IR Features ---
+load_count                         : 5
+store_count                        : 5
+alloca_count                       : 3
+add_count                          : 0
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 0
+branch_count                       : 3
+getelementptr_count                : 0
+comparison_count                   : 1
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 0
+atomic_count                       : 0
+integer_division_count             : 0
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 1
+unreachable_count                  : 0
+pointer_count                      : 18
+null_pointer_store_count           : 1
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 0
+
+--- Combined Security Findings ---
+
+Finding 1: Null-pointer representation detected
+Severity: INFO
+Source  : Static analysis
+Details : A null-pointer representation appears in the IR. Its presence alone does not prove a dereference.
+
+Finding 2: Possible null-pointer alias dereference
+Severity: REVIEW
+Source  : Static analysis
+Details : A pointer value originating from a null store appears to be copied through pointer storage, checked against null, and dereferenced in the true branch. This limited heuristic does not prove general pointer aliases or reachability.
+
+Finding 3: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 5 load instruction(s) and 5 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+Finding 4: Comparison and branch instructions detected
+Severity: INFO
+Source  : Static analysis
+Details : The IR contains comparisons and branches. Their presence does not prove that security checks are correct; inspect conditions and control-flow paths.
+
+--- Summary ---
+Total findings       : 4
+Review findings      : 1
+Informational findings: 3
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+Absence of findings does not prove that a program is secure.
+============================================================

@@ -1,0 +1,60 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : safe_test_04.ll
+ML Predicted Class : SAFE
+
+--- Overall Security Assessment ---
+NO CONFIGURED REVIEW PATTERNS DETECTED - NOT A SAFETY GUARANTEE
+Reason: No REVIEW findings were generated, and the ML model predicted SAFE. Undetected risks may still exist.
+
+--- Extracted IR Features ---
+load_count                         : 2
+store_count                        : 4
+alloca_count                       : 2
+add_count                          : 0
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 0
+branch_count                       : 3
+getelementptr_count                : 0
+comparison_count                   : 1
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 0
+atomic_count                       : 0
+integer_division_count             : 0
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 1
+unreachable_count                  : 0
+pointer_count                      : 6
+null_pointer_store_count           : 0
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 0
+
+--- Combined Security Findings ---
+
+Finding 1: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 2 load instruction(s) and 4 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+Finding 2: Comparison and branch instructions detected
+Severity: INFO
+Source  : Static analysis
+Details : The IR contains comparisons and branches. Their presence does not prove that security checks are correct; inspect conditions and control-flow paths.
+
+--- Summary ---
+Total findings       : 2
+Review findings      : 0
+Informational findings: 2
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+Absence of findings does not prove that a program is secure.
+============================================================

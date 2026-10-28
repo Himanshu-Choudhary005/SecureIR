@@ -1,0 +1,65 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : integer_test_02.ll
+ML Predicted Class : SAFE
+
+--- Overall Security Assessment ---
+POTENTIAL RISK - MANUAL REVIEW REQUIRED
+Reason: 2 finding(s) require manual review.
+
+--- Extracted IR Features ---
+load_count                         : 3
+store_count                        : 4
+alloca_count                       : 4
+add_count                          : 0
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 1
+branch_count                       : 0
+getelementptr_count                : 0
+comparison_count                   : 0
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 2
+atomic_count                       : 1
+integer_division_count             : 1
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 2
+unreachable_count                  : 0
+pointer_count                      : 7
+null_pointer_store_count           : 0
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 1
+
+--- Combined Security Findings ---
+
+Finding 1: Integer division or remainder detected
+Severity: REVIEW
+Source  : Static analysis
+Details : Found 1 integer division/remainder instruction(s). Review divisor values and input validation. This check does not prove that a divisor can be zero.
+
+Finding 2: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 3 load instruction(s) and 4 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+Finding 3: Possible interprocedural division by zero
+Severity: REVIEW
+Source  : IR data-flow analysis
+Details : Function @main passes a value resolved to zero into parameter %1 of @divide_values. The parameter is stored, loaded, and used as the divisor of an integer division/remainder instruction. This is a review finding, not a general proof for arbitrary control flow.
+
+--- Summary ---
+Total findings       : 3
+Review findings      : 2
+Informational findings: 1
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+Absence of findings does not prove that a program is secure.
+============================================================

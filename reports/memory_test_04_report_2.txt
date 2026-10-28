@@ -1,0 +1,65 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : memory_test_04.ll
+ML Predicted Class : MEMORY_RISK
+
+--- Overall Security Assessment ---
+ML FLAGGED RISK - MANUAL REVIEW REQUIRED
+Reason: The ML model classified this program as MEMORY_RISK. This prediction is experimental and needs verification.
+
+--- Extracted IR Features ---
+load_count                         : 5
+store_count                        : 5
+alloca_count                       : 3
+add_count                          : 0
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 0
+branch_count                       : 3
+getelementptr_count                : 0
+comparison_count                   : 1
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 0
+atomic_count                       : 0
+integer_division_count             : 0
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 0
+return_count                       : 1
+unreachable_count                  : 0
+pointer_count                      : 18
+null_pointer_store_count           : 1
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 0
+
+--- Combined Security Findings ---
+
+Finding 1: Null-pointer representation detected
+Severity: INFO
+Source  : Static analysis
+Details : A null-pointer representation appears in the IR. Its presence alone does not prove a dereference.
+
+Finding 2: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 5 load instruction(s) and 5 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+Finding 3: Comparison and branch instructions detected
+Severity: INFO
+Source  : Static analysis
+Details : The IR contains comparisons and branches. Their presence does not prove that security checks are correct; inspect conditions and control-flow paths.
+
+--- Summary ---
+Total findings       : 3
+Review findings      : 0
+Informational findings: 3
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+Absence of findings does not prove that a program is secure.
+============================================================

@@ -1,0 +1,8 @@
+#include <limits.h>
+
+int main(void) {
+    volatile int a = INT_MAX;
+    volatile int b = 2;
+
+    return a * b;
+}

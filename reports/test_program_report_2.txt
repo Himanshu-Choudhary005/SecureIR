@@ -1,0 +1,75 @@
+============================================================
+             SecureIR Analysis Report
+============================================================
+IR File            : test_program.ll
+ML Predicted Class : SAFE
+
+--- Overall Security Assessment ---
+POTENTIAL RISK - MANUAL REVIEW REQUIRED
+Reason: 3 finding(s) require manual review.
+
+--- Extracted IR Features ---
+load_count                         : 4
+store_count                        : 5
+alloca_count                       : 6
+add_count                          : 0
+sub_count                          : 0
+mul_count                          : 0
+call_count                         : 1
+branch_count                       : 0
+getelementptr_count                : 1
+comparison_count                   : 0
+select_count                       : 0
+phi_count                          : 0
+volatile_count                     : 0
+atomic_count                       : 0
+integer_division_count             : 1
+shift_count                        : 0
+trunc_count                        : 0
+extension_count                    : 1
+return_count                       : 1
+unreachable_count                  : 0
+pointer_count                      : 14
+null_pointer_store_count           : 0
+pointer_return_count               : 0
+has_bounds_related_operations      : 0
+has_integer_arithmetic             : 1
+
+--- Combined Security Findings ---
+
+Finding 1: Integer division or remainder detected
+Severity: REVIEW
+Source  : Static analysis
+Details : Found 1 integer division/remainder instruction(s). Review divisor values and input validation. This check does not prove that a divisor can be zero.
+
+Finding 2: Pointer calculation detected
+Severity: INFO
+Source  : Static analysis
+Details : Found 1 getelementptr instruction(s). Review indexes, object sizes, and memory accesses. These instructions alone do not prove an out-of-bounds access.
+
+Finding 3: Memory operation summary
+Severity: INFO
+Source  : Static analysis
+Details : Found 4 load instruction(s) and 5 store instruction(s). These operations are normal LLVM IR instructions, not vulnerabilities by themselves.
+
+Finding 4: Possible constant out-of-bounds array access
+Severity: REVIEW
+Source  : IR data-flow analysis
+Details : In function @main, GEP result %12 indexes an array of 3 elements using index 5. Valid indexes are 0 through 2. Review the access.
+
+Finding 5: Possible integer division by zero
+Severity: REVIEW
+Source  : IR data-flow analysis
+Details : In function @main, instruction %9 uses sdiv with a divisor resolved to constant zero by the simple constant-propagation analysis.
+
+--- Summary ---
+Total findings       : 5
+Review findings      : 3
+Informational findings: 2
+
+============================================================
+Analysis completed.
+ML prediction is experimental.
+Static and data-flow findings are preliminary indicators, not confirmed vulnerabilities.
+Absence of findings does not prove that a program is secure.
+============================================================

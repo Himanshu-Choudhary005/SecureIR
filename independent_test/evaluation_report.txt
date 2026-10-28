@@ -1,0 +1,30 @@
+=================================================================
+SecureIR Independent Evaluation Report
+=================================================================
+Test programs defined: 12
+Successful predictions: 12
+Failed analyses: 0
+
+Accuracy:  0.8333 (83.33%)
+Macro Precision: 0.8889
+Macro Recall:    0.8333
+Macro F1-score:  0.8381
+
+Classification Report:
+              precision    recall  f1-score   support
+
+INTEGER_RISK       1.00      0.75      0.86         4
+ MEMORY_RISK       1.00      0.75      0.86         4
+        SAFE       0.67      1.00      0.80         4
+
+    accuracy                           0.83        12
+   macro avg       0.89      0.83      0.84        12
+weighted avg       0.89      0.83      0.84        12
+
+Confusion Matrix (rows=actual, columns=predicted):
+Label order: ['INTEGER_RISK', 'MEMORY_RISK', 'SAFE']
+[[3 0 1]
+ [0 3 1]
+ [0 0 4]]
+
+LIMITATION: This is a small, manually designed test set. The labels describe intended risk categories, not a formal proof that each program contains or does not contain a vulnerability. Results may be affected by overlap in patterns with training data.
